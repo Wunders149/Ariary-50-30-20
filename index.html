@@ -13,80 +13,276 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="brand"><div class="brand-mark">₳</div><div><strong>Budget 50·30·20</strong><small>Ton argent, tes objectifs.</small></div></div>
+    <div class="brand">
+      <div class="brand-mark">₳</div>
+      <div>
+        <strong>Budget 50·30·20</strong>
+        <small>Ton argent, tes objectifs.</small>
+      </div>
+    </div>
     <button id="installBtn" class="btn btn-light hidden">Installer l’app</button>
   </header>
 
   <main class="container">
     <section class="hero">
-      <div><p class="eyebrow">TABLEAU DE BORD · ARIARY (MGA)</p><h1>Bonjour 👋</h1><p class="muted">Garde le cap sur tes finances, un mois à la fois.</p></div>
-      <div class="month-control"><label for="monthPicker">Mois suivi</label><input type="month" id="monthPicker"></div>
+      <div>
+        <p class="eyebrow">TABLEAU DE BORD · ARIARY (MGA)</p>
+        <h1>Bonjour 👋</h1>
+        <p class="muted">Garde le cap sur tes finances, un mois à la fois.</p>
+      </div>
+      <div class="month-control">
+        <label for="monthPicker">Mois suivi</label>
+        <input type="month" id="monthPicker">
+      </div>
     </section>
 
     <section class="summary-grid">
-      <article class="summary-card primary"><span>Revenu mensuel</span><strong id="incomeDisplay">450 000 Ar</strong><button class="text-button" id="editIncomeBtn">Modifier le revenu</button></article>
-      <article class="summary-card"><span>Dépenses enregistrées</span><strong id="spentDisplay">0 Ar</strong><small id="spentPercent">0 % du revenu</small></article>
-      <article class="summary-card"><span>Solde du mois</span><strong id="balanceDisplay">450 000 Ar</strong><small>Revenu moins dépenses</small></article>
+      <article class="summary-card primary">
+        <span>Revenu mensuel</span>
+        <strong id="incomeDisplay">450 000 Ar</strong>
+        <button class="text-button" id="editIncomeBtn" type="button">Modifier le revenu</button>
+      </article>
+
+      <article class="summary-card">
+        <span>Dépenses enregistrées</span>
+        <strong id="spentDisplay">0 Ar</strong>
+        <small id="spentPercent">0 % du revenu</small>
+      </article>
+
+      <article class="summary-card accent">
+        <span>Solde du mois</span>
+        <strong id="balanceDisplay">450 000 Ar</strong>
+        <small id="budgetStatus">Budget stable</small>
+      </article>
+
+      <article class="summary-card">
+        <span>Reste à vivre</span>
+        <strong id="remainingDisplay">450 000 Ar</strong>
+        <small id="budgetHealth">Très bien</small>
+      </article>
     </section>
 
     <section class="section">
-      <div class="section-heading"><div><p class="eyebrow">RÉPARTITION CONSEILLÉE</p><h2>La règle 50·30·20</h2></div><span class="pill">Automatique</span></div>
-      <div class="allocation-bar" aria-label="Répartition 50 30 20"><span class="needs"></span><span class="wants"></span><span class="savings"></span></div>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">RÉPARTITION CONSEILLÉE</p>
+          <h2>La règle 50·30·20</h2>
+        </div>
+        <span class="pill">Automatique</span>
+      </div>
+      <div class="allocation-bar" aria-label="Répartition 50 30 20">
+        <span class="needs"></span>
+        <span class="wants"></span>
+        <span class="savings"></span>
+      </div>
       <div class="allocation-grid">
-        <article><div class="legend"><i class="dot needs-bg"></i><span>Besoins · 50 %</span></div><strong id="needsTarget">225 000 Ar</strong><small>Logement, nourriture, transport…</small></article>
-        <article><div class="legend"><i class="dot wants-bg"></i><span>Envies · 30 %</span></div><strong id="wantsTarget">135 000 Ar</strong><small>Loisirs et achats personnels</small></article>
-        <article><div class="legend"><i class="dot savings-bg"></i><span>Épargne · 20 %</span></div><strong id="savingsTarget">90 000 Ar</strong><small>Épargne et investissements</small></article>
+        <article>
+          <div class="legend">
+            <i class="dot needs-bg"></i>
+            <span>Besoins · 50 %</span>
+          </div>
+          <strong id="needsTarget">225 000 Ar</strong>
+          <small>Logement, nourriture, transport…</small>
+        </article>
+
+        <article>
+          <div class="legend">
+            <i class="dot wants-bg"></i>
+            <span>Envies · 30 %</span>
+          </div>
+          <strong id="wantsTarget">135 000 Ar</strong>
+          <small>Loisirs et achats personnels</small>
+        </article>
+
+        <article>
+          <div class="legend">
+            <i class="dot savings-bg"></i>
+            <span>Épargne · 20 %</span>
+          </div>
+          <strong id="savingsTarget">90 000 Ar</strong>
+          <small>Épargne et investissements</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="section insight-panel">
+      <div class="section-heading compact">
+        <div>
+          <p class="eyebrow">SYNTHÈSE</p>
+          <h2>État du mois</h2>
+        </div>
+      </div>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <span class="insight-label">Budget</span>
+          <strong id="budgetInsight">Reste 450 000 Ar</strong>
+        </div>
+        <div class="insight-card">
+          <span class="insight-label">Catégorie la plus élevée</span>
+          <strong id="topCategory">Aucune dépense</strong>
+        </div>
+        <div class="insight-card">
+          <span class="insight-label">Épargne cible</span>
+          <strong id="savingsInsight">90 000 Ar</strong>
+        </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-heading"><div><p class="eyebrow">SUIVI DU MOIS</p><h2>Mes enveloppes</h2></div></div>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">SUIVI DU MOIS</p>
+          <h2>Mes enveloppes</h2>
+        </div>
+      </div>
       <div id="envelopes" class="envelopes"></div>
     </section>
 
     <section class="section">
-      <div class="section-heading"><div><p class="eyebrow">MOUVEMENTS</p><h2>Ajouter une opération</h2></div></div>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">MOUVEMENTS</p>
+          <h2>Ajouter une opération</h2>
+        </div>
+      </div>
+
       <form id="transactionForm" class="form-card">
         <div class="form-grid">
-          <label>Description<input id="description" maxlength="70" placeholder="Ex. Courses, taxi, épargne…" required></label>
-          <label>Montant (Ar)<input id="amount" type="number" min="1" step="1" placeholder="5000" required></label>
-          <label>Catégorie<select id="category"><option value="needs">Besoins essentiels</option><option value="wants">Envies et loisirs</option><option value="savings">Épargne</option></select></label>
-          <label>Date<input id="transactionDate" type="date" required></label>
+          <label>
+            Description
+            <input id="description" maxlength="70" placeholder="Ex. Courses, taxi, épargne…" required>
+          </label>
+
+          <label>
+            Montant (Ar)
+            <input id="amount" type="number" min="1" step="1" placeholder="5000" required>
+          </label>
+
+          <label>
+            Catégorie
+            <select id="category">
+              <option value="needs">Besoins essentiels</option>
+              <option value="wants">Envies et loisirs</option>
+              <option value="savings">Épargne</option>
+            </select>
+          </label>
+
+          <label>
+            Date
+            <input id="transactionDate" type="date" required>
+          </label>
         </div>
+
+        <div class="quick-actions" aria-label="Montants rapides">
+          <button type="button" class="chip" data-quick="5000">+5 000</button>
+          <button type="button" class="chip" data-quick="10000">+10 000</button>
+          <button type="button" class="chip" data-quick="25000">+25 000</button>
+          <button type="button" class="chip" data-quick="50000">+50 000</button>
+        </div>
+
         <button class="btn btn-primary" type="submit">＋ Enregistrer l’opération</button>
       </form>
+
       <div class="transaction-list" id="transactionList"></div>
     </section>
 
     <section class="section goal-section">
-      <div class="section-heading"><div><p class="eyebrow">TON PROJET PRIORITAIRE</p><h2>Mon futur ordinateur 💻</h2></div><span class="pill pill-green">Objectif actif</span></div>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">TON PROJET PRIORITAIRE</p>
+          <h2>Mon futur ordinateur 💻</h2>
+        </div>
+        <span class="pill pill-green">Objectif actif</span>
+      </div>
+
       <div class="goal-card">
-        <div class="goal-top"><div><small>Objectif d’achat</small><strong id="goalTarget">1 080 000 Ar</strong></div><div class="goal-progress-text"><small>Déjà épargné</small><strong id="goalSaved">0 Ar</strong></div></div>
-        <div class="progress-track"><div id="goalProgress" class="progress-fill"></div></div>
-        <div class="goal-bottom"><span id="goalPercent">0 % atteint</span><span id="goalRemaining">Reste 1 080 000 Ar</span></div>
-        <form id="goalForm" class="goal-form"><label for="goalContribution">Ajouter à l’objectif (Ar)</label><div><input id="goalContribution" type="number" min="1" step="1" placeholder="Ex. 50000" required><button class="btn btn-primary" type="submit">Ajouter</button></div></form>
+        <div class="goal-top">
+          <div>
+            <small>Objectif d’achat</small>
+            <strong id="goalTarget">1 080 000 Ar</strong>
+          </div>
+          <div class="goal-progress-text">
+            <small>Déjà épargné</small>
+            <strong id="goalSaved">0 Ar</strong>
+          </div>
+        </div>
+
+        <div class="progress-track">
+          <div id="goalProgress" class="progress-fill"></div>
+        </div>
+
+        <div class="goal-bottom">
+          <span id="goalPercent">0 % atteint</span>
+          <span id="goalRemaining">Reste 1 080 000 Ar</span>
+        </div>
+
+        <form id="goalForm" class="goal-form">
+          <label for="goalContribution">Ajouter à l’objectif (Ar)</label>
+          <div>
+            <input id="goalContribution" type="number" min="1" step="1" placeholder="Ex. 50 000" required>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+          </div>
+        </form>
+
         <p class="hint">Les contributions à l’objectif sont suivies séparément des dépenses. Elles ne sont pas ajoutées deux fois à tes dépenses mensuelles.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-heading"><div><p class="eyebrow">VUE D’ENSEMBLE</p><h2>Historique mensuel</h2></div></div>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">VUE D’ENSEMBLE</p>
+          <h2>Historique mensuel</h2>
+        </div>
+      </div>
       <div id="historyList" class="history-list"></div>
     </section>
 
     <section class="section tools-section">
-      <div class="section-heading"><div><p class="eyebrow">TES DONNÉES</p><h2>Sauvegarde & paramètres</h2></div></div>
-      <div class="tools-grid">
-        <button id="exportBtn" class="tool-button"><b>↓ Exporter mes données</b><small>Télécharger une sauvegarde JSON</small></button>
-        <label class="tool-button import-button"><b>↑ Restaurer une sauvegarde</b><small>Importer un fichier JSON</small><input id="importFile" type="file" accept="application/json"></label>
-        <button id="clearMonthBtn" class="tool-button danger"><b>Réinitialiser ce mois</b><small>Supprimer les opérations du mois sélectionné</small></button>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">TES DONNÉES</p>
+          <h2>Sauvegarde & paramètres</h2>
+        </div>
       </div>
-      <p class="privacy-note">🔒 Tes données restent dans le stockage de ce navigateur sur cet appareil. Aucun compte ni serveur n’est utilisé. Exporte régulièrement une sauvegarde : la désinstallation ou l’effacement des données du navigateur peut supprimer tes informations.</p>
+
+      <div class="tools-grid">
+        <button id="exportBtn" class="tool-button" type="button">
+          <b>↓ Exporter mes données</b>
+          <small>Télécharger une sauvegarde JSON</small>
+        </button>
+
+        <label class="tool-button import-button">
+          <b>↑ Restaurer une sauvegarde</b>
+          <small>Importer un fichier JSON</small>
+          <input id="importFile" type="file" accept="application/json">
+        </label>
+
+        <button id="clearMonthBtn" class="tool-button danger" type="button">
+          <b>Réinitialiser ce mois</b>
+          <small>Supprimer les opérations du mois sélectionné</small>
+        </button>
+      </div>
+
+      <p class="privacy-note">🔒 Tes données restent dans le stockage de ce navigateur sur cet appareil. Aucun compte ni serveur n’est utilisé. Exporte régulièrement une sauvegarde : la perte de données peut arriver si le navigateur est réinitialisé.</p>
     </section>
-    <footer>Budget 50·30·20 · Version 1.0 · Fonctionne hors connexion après installation.</footer>
+
+    <footer>Budget 50·30·20 · Version 1.1 · Fonctionne hors connexion après installation.</footer>
   </main>
 
-  <dialog id="incomeDialog"><form method="dialog" id="incomeForm" class="dialog-card"><button class="close" value="cancel" aria-label="Fermer">×</button><p class="eyebrow">PARAMÈTRES</p><h2>Revenu mensuel net</h2><label for="incomeInput">Montant en Ariary</label><input id="incomeInput" type="number" min="0" step="1" required><div class="dialog-actions"><button class="btn btn-primary" value="save">Enregistrer</button></div></form></dialog>
+  <dialog id="incomeDialog">
+    <form method="dialog" id="incomeForm" class="dialog-card">
+      <button class="close" value="cancel" aria-label="Fermer" type="button">×</button>
+      <p class="eyebrow">PARAMÈTRES</p>
+      <h2>Revenu mensuel</h2>
+      <label>
+        Montant (Ar)
+        <input id="incomeInput" type="number" min="0" step="1000" required>
+      </label>
+      <button class="btn btn-primary" type="submit">Enregistrer</button>
+    </form>
+  </dialog>
+
   <div id="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>
 </body>
