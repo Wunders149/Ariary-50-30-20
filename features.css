@@ -1,0 +1,38 @@
+.transaction-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(180px, 1fr) auto;
+  align-items: end;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.65);
+}
+
+.transaction-filters input,
+.transaction-filters select {
+  margin-top: 0.35rem;
+}
+
+.filter-count {
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 0 0.3rem 0.8rem;
+  white-space: nowrap;
+}
+
+.transaction[hidden],
+.filter-empty[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+  .transaction-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-count {
+    padding: 0;
+  }
+}
